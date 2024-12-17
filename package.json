@@ -7,7 +7,7 @@
  "scripts": {
   "dev": "sanity dev --port 3333",
   "build": "npx sanity build",
-  "start": "npx sanity start,
+  "start": "npx sanity start",
   "deploy": "npx sanity deploy",
   "deploy-graphql": "npx sanity graphql deploy"
 },
