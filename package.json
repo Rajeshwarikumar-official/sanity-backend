@@ -7,9 +7,9 @@
  "scripts": {
     "dev": "sanity dev",
     "start": "node index.js",
-    "build": "sanity build --output-path=./dist",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "build": "npx sanity build --output-path=./dist",
+    "deploy": "npx sanity deploy",
+    "deploy-graphql": "npx sanity graphql deploy"
   },
   "keywords": [
     "sanity"
