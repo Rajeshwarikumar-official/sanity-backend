@@ -32,5 +32,5 @@ app.get('*', (req, res) => {
 
 const port = process.env.PORT || 3333;
 app.listen(port, () => {
-  console.log(Sanity Studio server listening on port ${port});
+  console.log(`Sanity Studio server listening on port ${port}`);
 });
