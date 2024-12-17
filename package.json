@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "main": "package.json",
   "license": "UNLICENSED",
-  "scripts": {
-    "dev": "sanity dev --port 3333",
-    "start": "sanity start --host 0.0.0.0 --port 3333",
-    "build": "npx sanity build",
-    "deploy": "npx sanity deploy",
-    "deploy-graphql": "npx sanity graphql deploy"
-  },
+ "scripts": {
+  "dev": "sanity dev --port 3333",
+  "build": "sanity build dist",
+  "start": "sanity start --host 0.0.0.0 --port ${PORT:-3333}",
+  "deploy": "sanity deploy",
+  "deploy-graphql": "sanity graphql deploy"
+},
   "keywords": [
     "sanity"
   ],
