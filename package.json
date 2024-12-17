@@ -5,23 +5,24 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
-    "start": "npx sanity start",
-    "build": "npx sanity build",
-    "deploy": "npx sanity deploy",
-    "deploy-graphql": "npx sanity graphql deploy"
+    "dev": "sanity dev --port 3333",
+    "start": "sanity start --port ${PORT:-3333}",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
     "@portabletext/react": "^3.1.0",
+    "@sanity/cli": "^3.67.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.64.1",
     "next-sanity": "^9.8.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.64.1",
+    "sanity": "^3.67.1",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
