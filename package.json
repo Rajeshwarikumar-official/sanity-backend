@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "package.json",
   "license": "UNLICENSED",
- "scripts": {
+  "scripts": {
     "dev": "sanity dev",
     "start": "node index.js",
     "build": "npx sanity build --output-path=./dist",
@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sanity": "^3.67.1",
+    "serve-static": "^1.16.2",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
