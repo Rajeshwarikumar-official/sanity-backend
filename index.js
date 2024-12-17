@@ -1,25 +1,36 @@
-const http = require('http');
+const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const serveStatic = require('serve-static');
+const app = express();
 
-const port = process.env.PORT || 3333;
-
-// Serve static files from the dist directory
-const staticServer = serveStatic(path.join(__dirname, 'dist'), {
-  index: ['index.html']
+console.log('Current directory:', __dirname);
+fs.readdir(__dirname, (err, files) => {
+  if (err) {
+    console.error('Error reading directory:', err);
+  } else {
+    console.log('Directory contents:', files);
+  }
 });
 
-// Create HTTP server
-const server = http.createServer((req, res) => {
-  console.log('Request URL:', req.url);
+// Serve static files from the dist directory
+app.use(express.static(path.join(__dirname, 'dist')));
 
-  staticServer(req, res, () => {
-    res.statusCode = 404;
-    res.end('Not Found');
+// Serve index.html for all routes
+app.get('*', (req, res) => {
+  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  
+  console.log('Attempting to serve:', indexPath);
+  
+  fs.access(indexPath, fs.constants.F_OK, (err) => {
+    if (err) {
+      console.error('Error: index.html not found');
+      return res.status(404).send('index.html not found. Make sure the build process completed successfully.');
+    }
+    res.sendFile(indexPath);
   });
 });
 
-server.listen(port, () => {
-  console.log(`Sanity Studio server listening on port ${port}`);
+const port = process.env.PORT || 3333;
+app.listen(port, () => {
+  console.log`(Sanity Studio server listening on port ${port})`;
 });
