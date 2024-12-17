@@ -6,8 +6,8 @@
   "license": "UNLICENSED",
  "scripts": {
   "dev": "sanity dev --port 3333",
-  "build": "npx sanity build dist",
-  "start": "npx sanity start --host 0.0.0.0 --port ${PORT:-3333}",
+  "build": "npx sanity build",
+  "start": "npx sanity start,
   "deploy": "npx sanity deploy",
   "deploy-graphql": "npx sanity graphql deploy"
 },
