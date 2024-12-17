@@ -1,16 +1,19 @@
-const sanityStudio = require('sanity');
+const http = require('http');
 const path = require('path');
 const fs = require('fs');
+const serveStatic = require('serve-static');
 
 const port = process.env.PORT || 3333;
 
-// Serve the static Sanity Studio build
-const staticServer = require('serve-static')(path.join(__dirname, 'dist'), {
+// Serve static files from the dist directory
+const staticServer = serveStatic(path.join(__dirname, 'dist'), {
   index: ['index.html']
 });
 
-const http = require('http');
+// Create HTTP server
 const server = http.createServer((req, res) => {
+  console.log('Request URL:', req.url);
+
   staticServer(req, res, () => {
     res.statusCode = 404;
     res.end('Not Found');
