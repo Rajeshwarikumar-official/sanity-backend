@@ -35,5 +35,13 @@ export default {
         },
         ],
     },
+    {
+        name: 'publishedAt',
+        type: 'datetime',
+        title: 'Published At',
+        options: {
+            defaultValue: (new Date()).toISOString()
+        }
+    }
     ],
 }
